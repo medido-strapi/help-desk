@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_distributor_faq_article_contents",
+  "info": {
+    "displayName": "FAQ Article Content",
+    "icon": "question"
+  },
+  "options": {},
+  "attributes": {
+    "distributor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::distributor.distributor"
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  },
+  "config": {}
+}

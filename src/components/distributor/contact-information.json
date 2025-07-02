@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_distributor_contact_informations",
+  "info": {
+    "displayName": "Contact information",
+    "icon": "envelop"
+  },
+  "options": {},
+  "attributes": {
+    "distributor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::distributor.distributor"
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": true
+    },
+    "availability": {
+      "type": "richtext",
+      "required": true
+    },
+    "availabilityNotification": {
+      "type": "richtext",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    }
+  },
+  "config": {}
+}
