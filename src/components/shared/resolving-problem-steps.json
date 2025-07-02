@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_resolving_problem_steps",
+  "info": {
+    "displayName": "Resolving problem steps",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  },
+  "config": {}
+}

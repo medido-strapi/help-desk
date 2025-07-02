@@ -57,6 +57,17 @@ export interface SharedQuote extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedResolvingProblemSteps extends Struct.ComponentSchema {
+  collectionName: 'components_shared_resolving_problem_steps';
+  info: {
+    displayName: 'Resolving problem steps';
+    icon: 'arrowRight';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedRichText extends Struct.ComponentSchema {
   collectionName: 'components_shared_rich_texts';
   info: {
@@ -103,6 +114,7 @@ declare module '@strapi/strapi' {
       'distributor.faq-article-content': DistributorFaqArticleContent;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
+      'shared.resolving-problem-steps': SharedResolvingProblemSteps;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
