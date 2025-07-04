@@ -3,7 +3,7 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface DistributorContactInformation extends Struct.ComponentSchema {
   collectionName: 'components_distributor_contact_informations';
   info: {
-    displayName: 'Contact information';
+    displayName: 'Contact Information';
     icon: 'envelop';
   };
   attributes: {
@@ -34,6 +34,23 @@ export interface DistributorFaqArticleContent extends Struct.ComponentSchema {
   };
 }
 
+export interface DistributorResolvingProblemSteps
+  extends Struct.ComponentSchema {
+  collectionName: 'components_distributor_resolving_problem_steps';
+  info: {
+    displayName: 'Resolving Problem Steps';
+    icon: 'bulletList';
+  };
+  attributes: {
+    distributor: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::distributor.distributor'
+    >;
+    steps: Schema.Attribute.Component<'shared.resolving-problem-steps', true> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -60,8 +77,8 @@ export interface SharedQuote extends Struct.ComponentSchema {
 export interface SharedResolvingProblemSteps extends Struct.ComponentSchema {
   collectionName: 'components_shared_resolving_problem_steps';
   info: {
-    displayName: 'Resolving problem steps';
-    icon: 'arrowRight';
+    displayName: 'Reach Text';
+    icon: 'layer';
   };
   attributes: {
     content: Schema.Attribute.RichText & Schema.Attribute.Required;
@@ -112,6 +129,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'distributor.contact-information': DistributorContactInformation;
       'distributor.faq-article-content': DistributorFaqArticleContent;
+      'distributor.resolving-problem-steps': DistributorResolvingProblemSteps;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.resolving-problem-steps': SharedResolvingProblemSteps;

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_distributor_resolving_problem_steps",
+  "info": {
+    "displayName": "Resolving Problem Steps",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "distributor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::distributor.distributor"
+    },
+    "steps": {
+      "type": "component",
+      "component": "shared.resolving-problem-steps",
+      "repeatable": true,
+      "required": true
+    }
+  },
+  "config": {}
+}

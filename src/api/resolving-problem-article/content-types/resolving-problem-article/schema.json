@@ -4,7 +4,7 @@
   "info": {
     "singularName": "resolving-problem-article",
     "pluralName": "resolving-problem-articles",
-    "displayName": "Resolving problem article"
+    "displayName": "Resolving Problem Article"
   },
   "options": {
     "draftAndPublish": true
@@ -32,7 +32,8 @@
         }
       },
       "required": true,
-      "unique": true
+      "unique": true,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     },
     "videoLink": {
       "type": "string",
@@ -43,14 +44,14 @@
       },
       "required": true
     },
-    "steps": {
+    "distributorContents": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "shared.resolving-problem-steps",
+      "component": "distributor.resolving-problem-steps",
       "repeatable": true,
       "required": true
     }

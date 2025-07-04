@@ -510,7 +510,7 @@ export interface ApiCustomerServiceContactInformationCustomerServiceContactInfor
   extends Struct.SingleTypeSchema {
   collectionName: 'customer_service_contact_informations';
   info: {
-    displayName: 'Customer service contact information';
+    displayName: '[Temp] Customer service contact information';
     pluralName: 'customer-service-contact-informations';
     singularName: 'customer-service-contact-information';
   };
@@ -540,6 +540,48 @@ export interface ApiCustomerServiceContactInformationCustomerServiceContactInfor
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::customer-service-contact-information.customer-service-contact-information'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCustomerServiceCustomerService
+  extends Struct.SingleTypeSchema {
+  collectionName: 'customer_services';
+  info: {
+    displayName: 'Customer Service';
+    pluralName: 'customer-services';
+    singularName: 'customer-service';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    distributorContents: Schema.Attribute.Component<
+      'distributor.contact-information',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::customer-service.customer-service'
     >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -676,7 +718,7 @@ export interface ApiResolvingProblemArticleResolvingProblemArticle
   extends Struct.CollectionTypeSchema {
   collectionName: 'resolving_problem_articles';
   info: {
-    displayName: 'Resolving problem article';
+    displayName: 'Resolving Problem Article';
     pluralName: 'resolving-problem-articles';
     singularName: 'resolving-problem-article';
   };
@@ -692,6 +734,16 @@ export interface ApiResolvingProblemArticleResolvingProblemArticle
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    distributorContents: Schema.Attribute.Component<
+      'distributor.resolving-problem-steps',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -704,13 +756,6 @@ export interface ApiResolvingProblemArticleResolvingProblemArticle
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
-        };
-      }>;
-    steps: Schema.Attribute.Component<'shared.resolving-problem-steps', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
         };
       }>;
     title: Schema.Attribute.String &
@@ -1247,6 +1292,7 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::customer-service-contact-information.customer-service-contact-information': ApiCustomerServiceContactInformationCustomerServiceContactInformation;
+      'api::customer-service.customer-service': ApiCustomerServiceCustomerService;
       'api::distributor.distributor': ApiDistributorDistributor;
       'api::faq-article.faq-article': ApiFaqArticleFaqArticle;
       'api::global.global': ApiGlobalGlobal;
