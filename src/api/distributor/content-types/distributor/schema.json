@@ -12,11 +12,25 @@
   "pluginOptions": {},
   "attributes": {
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "distributorId": {
       "type": "uid",
-      "targetField": "Name"
+      "targetField": "Name",
+      "required": true
+    },
+    "languages": {
+      "type": "component",
+      "component": "distributor.languages",
+      "repeatable": true,
+      "required": true
+    },
+    "environments": {
+      "type": "component",
+      "component": "distributor.environment",
+      "repeatable": true,
+      "required": true
     }
   }
 }

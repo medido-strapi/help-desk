@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_distributor_environments",
+  "info": {
+    "displayName": "Environment"
+  },
+  "options": {},
+  "attributes": {
+    "environmentId": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "test",
+        "acc",
+        "Prod"
+      ]
+    },
+    "portalDistributorIds": {
+      "type": "component",
+      "component": "shared.integer",
+      "repeatable": true,
+      "required": true
+    }
+  },
+  "config": {}
+}

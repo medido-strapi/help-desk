@@ -604,14 +604,18 @@ export interface ApiDistributorDistributor extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    distributorId: Schema.Attribute.UID<'Name'>;
+    distributorId: Schema.Attribute.UID<'Name'> & Schema.Attribute.Required;
+    environments: Schema.Attribute.Component<'distributor.environment', true> &
+      Schema.Attribute.Required;
+    languages: Schema.Attribute.Component<'distributor.languages', true> &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::distributor.distributor'
     > &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
