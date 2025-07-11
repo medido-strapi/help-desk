@@ -11,7 +11,7 @@
       "enum": [
         "test",
         "acc",
-        "Prod"
+        "prod"
       ]
     },
     "portalDistributorIds": {

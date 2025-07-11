@@ -25,7 +25,7 @@ export interface DistributorEnvironment extends Struct.ComponentSchema {
     displayName: 'Environment';
   };
   attributes: {
-    environmentId: Schema.Attribute.Enumeration<['test', 'acc', 'Prod']> &
+    environmentId: Schema.Attribute.Enumeration<['test', 'acc', 'prod']> &
       Schema.Attribute.Required;
     portalDistributorIds: Schema.Attribute.Component<'shared.integer', true> &
       Schema.Attribute.Required;
