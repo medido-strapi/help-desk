@@ -54,7 +54,7 @@ export interface DistributorLanguages extends Struct.ComponentSchema {
     icon: 'earth';
   };
   attributes: {
-    code: Schema.Attribute.Enumeration<['en', 'nl', 'dk']> &
+    code: Schema.Attribute.Enumeration<['en', 'nl', 'da']> &
       Schema.Attribute.Required;
   };
 }
