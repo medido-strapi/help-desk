@@ -782,6 +782,45 @@ export interface ApiResolvingProblemArticleResolvingProblemArticle
   };
 }
 
+export interface ApiSsApplicationTranslationSsApplicationTranslation
+  extends Struct.SingleTypeSchema {
+  collectionName: 'ss_application_translations';
+  info: {
+    displayName: 'SS Application Translation';
+    pluralName: 'ss-application-translations';
+    singularName: 'ss-application-translation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ss-application-translation.ss-application-translation'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    translation: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1301,6 +1340,7 @@ declare module '@strapi/strapi' {
       'api::faq-article.faq-article': ApiFaqArticleFaqArticle;
       'api::global.global': ApiGlobalGlobal;
       'api::resolving-problem-article.resolving-problem-article': ApiResolvingProblemArticleResolvingProblemArticle;
+      'api::ss-application-translation.ss-application-translation': ApiSsApplicationTranslationSsApplicationTranslation;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

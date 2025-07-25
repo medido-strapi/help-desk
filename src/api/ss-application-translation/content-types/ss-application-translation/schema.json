@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "ss_application_translations",
+  "info": {
+    "singularName": "ss-application-translation",
+    "pluralName": "ss-application-translations",
+    "displayName": "SS Application Translation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "translation": {
+      "type": "json",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    }
+  }
+}
